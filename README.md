@@ -105,19 +105,20 @@ If your corporate computer does not have Git installed, you can upload everythin
 Choose between two completely free cloud methods:
 
 ### Option A: Via GitHub Actions (Automated CI/CD Pipeline)
-1. In your GitHub repository, click the **Actions** tab.
-2. Select the workflow **"🚀 YOLO ONNX Cloud Trainer (Zero-Retention)"** from the left list.
-3. Click the **Run workflow** dropdown button.
-4. Configure your training parameters (default: 30 or 35 epochs, batch size 8, imgsz 640) and click **Run workflow**.
-5. Wait for the run to finish (~15 minutes on standard CPU runner).
-6. Click the completed run and download your `.onnx` model from the **Artifacts** section!
+1. Export your dataset JSON from your annotation studio.
+2. In your repository ([github.com/bruno33223/yolo-onnx-cloud-trainer](https://github.com/bruno33223/yolo-onnx-cloud-trainer)), click **Add file > Upload files** and upload `dataset.json`.
+3. **Automated Trigger:** GitHub Actions detects the dataset and launches training automatically! (Or trigger manually anytime via the **Actions** tab > **Run workflow**).
+4. Wait for the run to finish (~15 minutes on standard CPU runner).
+5. Download your compiled `.onnx` model from the **Artifacts** section!
 
 ### Option B: Via Google Colab (Free NVIDIA Tesla T4 GPU Acceleration)
-1. Open the file `train_colab.ipynb` included in this repository on [Google Colab](https://colab.research.google.com/).
-2. Enable the free GPU accelerator via **Runtime > Change runtime type > T4 GPU**.
-3. Click **Runtime > Run all** (or execute cells sequentially).
-4. When prompted by the upload widget, select your exported dataset file (e.g., `dataset.json`).
-5. Training will complete in under 3 minutes, and the compiled `.onnx` file will **automatically download to your computer**!
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/bruno33223/yolo-onnx-cloud-trainer/blob/main/train_colab.ipynb)
+
+1. Click the **Open In Colab** badge above or open [train_colab.ipynb in Google Colab](https://colab.research.google.com/github/bruno33223/yolo-onnx-cloud-trainer/blob/main/train_colab.ipynb).
+2. Click **Runtime > Run all**.
+3. Select your exported `dataset.json` file when prompted by the upload widget.
+4. Training completes in under 3 minutes on the free Tesla T4 GPU, and the `.onnx` model **automatically downloads to your PC**!
 
 ---
 
